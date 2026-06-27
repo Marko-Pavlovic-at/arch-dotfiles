@@ -50,8 +50,14 @@ cp "$REPO_DIR/configs/qt6ct.conf"          ~/.config/qt6ct/qt6ct.conf
 cp "$REPO_DIR/configs/Kvantum/kvantum.kvconfig" ~/.config/Kvantum/
 cp "$REPO_DIR/configs/dunst/dunstrc"       ~/.config/dunst/
 
+# Claude memory
+echo "[4/5] Installing Claude memory..."
+MEMORY_DIR="$HOME/.claude/projects/-home-marko-arch/memory"
+mkdir -p "$MEMORY_DIR"
+cp "$REPO_DIR/claude-memory/"* "$MEMORY_DIR/"
+
 # NVIDIA
-echo "[4/5] Checking GPU..."
+echo "[5/6] Checking GPU..."
 if lspci | grep -qi nvidia; then
   echo "    NVIDIA detected — adding env vars to hyprland.lua"
   cat >> ~/.config/hypr/hyprland.lua << 'EOF'
@@ -66,7 +72,7 @@ else
   echo "    No NVIDIA GPU found, skipping."
 fi
 
-echo "[5/5] Done."
+echo "[6/6] Done."
 echo ""
 echo "=== Next steps ==="
 echo ""
