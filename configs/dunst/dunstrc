@@ -1,0 +1,77 @@
+[global]
+    monitor = 0
+    follow = mouse
+
+    width = 320
+    height = 120
+    origin = top-right
+    offset = 12x48
+    scale = 0
+    gap_size = 4
+
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 280
+    progress_bar_corner_radius = 4
+
+    indicate_hidden = yes
+    transparency = 12
+    separator_height = 1
+    padding = 10
+    horizontal_padding = 12
+    text_icon_padding = 8
+    frame_width = 1
+    frame_color = "#00d4ff"
+    gap_size = 4
+    separator_color = frame
+    sort = yes
+
+    font = FantasqueSansM Nerd Font 11
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    enable_recursive_icon_lookup = true
+    icon_theme = Papirus-Dark
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 48
+    icon_corner_radius = 4
+
+    corner_radius = 6
+    ignore_dbusclose = false
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    background = "#08111eee"
+    foreground = "#7aaabb"
+    frame_color = "#1a3a4a"
+    timeout = 4
+
+[urgency_normal]
+    background = "#08111eee"
+    foreground = "#b0ccd8"
+    frame_color = "#00d4ff"
+    timeout = 6
+
+[urgency_critical]
+    background = "#100814ee"
+    foreground = "#f4a0b8"
+    frame_color = "#f4a0b8"
+    timeout = 0

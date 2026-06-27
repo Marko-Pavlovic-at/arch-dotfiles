@@ -57,6 +57,9 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "capitaine-cursors")
+hl.env("QT_QPA_PLATFORMTHEME", "kvantum")
+hl.env("QT_STYLE_OVERRIDE", "kvantum")
 
 
 -----------------------
