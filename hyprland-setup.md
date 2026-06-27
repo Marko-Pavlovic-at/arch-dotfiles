@@ -82,11 +82,14 @@ pkill waybar; waybar & disown
 | `SUPER + RMB drag` | Resize window |
 | `XF86Audio*` | Volume via wpctl |
 | `XF86Brightness*` | Brightness via brightnessctl |
+| `PRINT` | Screenshot full screen (copy to clipboard) |
+| `SUPER + PRINT` | Screenshot area selection (copy to clipboard) |
+| `SUPER + SHIFT + PRINT` | Screenshot area selection (save to ~/Pictures) |
 
 ---
 
 ## Still to do
 
 - [x] hyprlock — `~/.config/hypr/hyprlock.conf` — `SUPER+L`, WW-themed
-- [ ] grimblast for screenshots — `sudo pacman -S grimblast-git`
+- [x] grimblast for screenshots — `sudo pacman -S grimblast`
 - [ ] hyprpaper wallpaper config — `~/.config/hypr/hyprpaper.conf`
