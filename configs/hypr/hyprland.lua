@@ -265,9 +265,9 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- Screenshots (grimblast)
-hl.bind("PRINT", hl.dsp.exec_cmd("grimblast copy screen"))
-hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("grimblast copy area"))
-hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("grimblast save area ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"))
+hl.bind("Print", hl.dsp.exec_cmd("grimblast copy screen"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grimblast copy area"))
+hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("bash -c 'grimblast save area ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png'"))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys
