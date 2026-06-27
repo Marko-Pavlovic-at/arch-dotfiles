@@ -1,0 +1,242 @@
+/* Wuthering Waves inspired Waybar theme
+   Two accents only: cyan (#00d4ff) for everything active, gold (#c8a84b) for the clock.
+   Red (#ff4444) reserved for critical states only. */
+
+* {
+    font-family: "FantasqueSansM Nerd Font", "FontAwesome", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: linear-gradient(180deg, rgba(4, 8, 20, 0.97) 0%, rgba(6, 11, 24, 0.95) 100%);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.25);
+    color: #b0ccd8;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.75);
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* ── Workspaces ─────────────────────────────────────────── */
+
+#workspaces {
+    margin: 0 8px 0 6px;
+}
+
+#workspaces button {
+    padding: 4px 15px;
+    margin: 6px 3px;
+    background: rgba(0, 212, 255, 0.04);
+    color: #4a7a8a;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    transition: all 200ms ease;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 212, 255, 0.1);
+    color: #7aaabb;
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 7px rgba(0, 212, 255, 0.2);
+}
+
+#workspaces button.active {
+    background: rgba(0, 212, 255, 0.12);
+    color: #00d4ff;
+    border-color: rgba(0, 212, 255, 0.65);
+    box-shadow:
+        0 0 12px rgba(0, 212, 255, 0.35),
+        0 0 3px rgba(0, 212, 255, 0.7),
+        inset 0 0 8px rgba(0, 212, 255, 0.07);
+}
+
+#workspaces button.urgent {
+    background: rgba(255, 68, 68, 0.12);
+    color: #ff5555;
+    border-color: rgba(255, 68, 68, 0.55);
+    box-shadow: 0 0 8px rgba(255, 68, 68, 0.3);
+}
+
+#workspaces button.empty {
+    color: #3a5a68;
+    border-color: rgba(0, 212, 255, 0.06);
+}
+
+/* ── Scratchpad ─────────────────────────────────────────── */
+
+#scratchpad {
+    margin: 6px 4px;
+    padding: 4px 12px;
+    background: rgba(8, 14, 30, 0.88);
+    border: 1px solid rgba(0, 212, 255, 0.14);
+    border-radius: 4px;
+    color: #3a5a6a;
+    font-size: 12px;
+}
+
+/* ── Window title ───────────────────────────────────────── */
+
+#window {
+    color: #4a7080;
+    font-style: italic;
+    font-size: 12px;
+    padding: 0 16px;
+    letter-spacing: 0.3px;
+}
+
+/* ── Shared module style ────────────────────────────────── */
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#idle_inhibitor,
+#power-profiles-daemon,
+#tray {
+    padding: 4px 14px;
+    margin: 6px 3px;
+    background: rgba(8, 14, 30, 0.88);
+    border: 1px solid rgba(0, 212, 255, 0.13);
+    border-radius: 4px;
+    color: #7aaabb;
+    letter-spacing: 0.5px;
+    transition: border-color 200ms ease;
+}
+
+/* ── Clock — gold only ──────────────────────────────────── */
+
+#clock {
+    color: #c8a84b;
+    border-color: rgba(200, 168, 75, 0.3);
+    background: rgba(12, 10, 3, 0.92);
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1.2px;
+    box-shadow: 0 0 7px rgba(200, 168, 75, 0.1);
+}
+
+/* ── Everything else — cyan variants only ───────────────── */
+
+#cpu,
+#memory,
+#network,
+#backlight,
+#battery,
+#pulseaudio,
+#temperature {
+    color: #6abccc;
+    border-color: rgba(0, 212, 255, 0.13);
+}
+
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover {
+    color: #00d4ff;
+    border-color: rgba(0, 212, 255, 0.35);
+    box-shadow: 0 0 7px rgba(0, 212, 255, 0.18);
+}
+
+/* ── Battery states ─────────────────────────────────────── */
+
+#battery.charging,
+#battery.plugged {
+    color: #00d4ff;
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+#battery.warning {
+    color: #9aacb8;
+}
+
+@keyframes battery-pulse {
+    0%   { color: #ff4444; border-color: rgba(255,68,68,0.5); }
+    50%  { color: #882222; border-color: rgba(255,68,68,0.1); }
+    100% { color: #ff4444; border-color: rgba(255,68,68,0.5); }
+}
+
+#battery.critical:not(.charging) {
+    color: #ff4444;
+    border-color: rgba(255, 68, 68, 0.5);
+    background: rgba(20, 4, 4, 0.92);
+    animation: battery-pulse 1.2s ease infinite;
+}
+
+/* ── Temperature critical ───────────────────────────────── */
+
+#temperature.critical {
+    color: #ff4444;
+    border-color: rgba(255, 68, 68, 0.5);
+    box-shadow: 0 0 8px rgba(255, 68, 68, 0.25);
+}
+
+/* ── Network disconnected ───────────────────────────────── */
+
+#network.disconnected {
+    color: #ff4444;
+    border-color: rgba(255, 68, 68, 0.4);
+}
+
+/* ── Pulseaudio muted ───────────────────────────────────── */
+
+#pulseaudio.muted {
+    color: #2e4a58;
+    border-color: rgba(0, 212, 255, 0.05);
+}
+
+/* ── Idle inhibitor ─────────────────────────────────────── */
+
+#idle_inhibitor {
+    color: #4a7080;
+}
+
+#idle_inhibitor.activated {
+    color: #00d4ff;
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.22);
+}
+
+/* ── Power profiles ─────────────────────────────────────── */
+
+#power-profiles-daemon.performance {
+    color: #ff5555;
+    border-color: rgba(255, 85, 85, 0.28);
+}
+
+#power-profiles-daemon.balanced {
+    color: #6abccc;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #00d4ff;
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+/* ── Tray ────────────────────────────────────────────────── */
+
+#tray {
+    padding: 4px 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(255, 68, 68, 0.25);
+    border-color: rgba(255, 68, 68, 0.45);
+}
