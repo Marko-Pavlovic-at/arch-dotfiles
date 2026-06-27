@@ -87,6 +87,6 @@ pkill waybar; waybar & disown
 
 ## Still to do
 
-- [ ] hyprlock — `~/.config/hypr/hyprlock.conf`
+- [x] hyprlock — `~/.config/hypr/hyprlock.conf` — `SUPER+L`, WW-themed
 - [ ] grimblast for screenshots — `sudo pacman -S grimblast-git`
 - [ ] hyprpaper wallpaper config — `~/.config/hypr/hyprpaper.conf`
