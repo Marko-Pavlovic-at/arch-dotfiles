@@ -46,6 +46,10 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("dunst")
     hl.exec_cmd("hypridle")
     hl.exec_cmd("hyprpolkitagent")
+    hl.exec_cmd("nm-applet")
+    hl.exec_cmd("blueman-applet")
+    hl.exec_cmd("wl-paste --type text --watch cliphist store")
+    hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
 
 
@@ -58,8 +62,7 @@ end)
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XCURSOR_THEME", "capitaine-cursors")
-hl.env("QT_QPA_PLATFORMTHEME", "kvantum")
-hl.env("QT_STYLE_OVERRIDE", "kvantum")
+hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 
 
 -----------------------
@@ -263,9 +266,10 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("bash -c 'cliphist list | wofi --dmenu | cliphist decode | wl-copy'"))
 
 -- Screenshots (grimblast)
 hl.bind("Print", hl.dsp.exec_cmd("grimblast copy screen"))
